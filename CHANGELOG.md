@@ -1,6 +1,7 @@
 # Changelog
 
 ### Unreleased
+- Fixed UpgradeScheme to work when tables have a prefix
 - Updated composer.json parameter indicating that the module works with PHP 8
 
 ### Version 1.3.5
