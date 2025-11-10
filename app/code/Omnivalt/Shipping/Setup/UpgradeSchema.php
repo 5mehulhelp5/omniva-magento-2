@@ -19,7 +19,7 @@ class UpgradeSchema implements UpgradeSchemaInterface
 
         if (version_compare($context->getVersion(), '1.2.2', '<')) {
 
-            if (!$installer->tableExists('omnivalt_label_history')) {
+            if (!$installer->tableExists($installer->getTable('omnivalt_label_history'))) {
                 $table = $installer->getConnection()->newTable(
                                 $installer->getTable('omnivalt_label_history')
                         )
@@ -39,7 +39,7 @@ class UpgradeSchema implements UpgradeSchemaInterface
                                 'order_id',
                                 \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
                                 null,
-                                ['nullable => false'],
+                                ['nullable' => false],
                                 'Order id'
                         )
                         ->addColumn(
@@ -67,7 +67,7 @@ class UpgradeSchema implements UpgradeSchemaInterface
         }
         
         if (version_compare($context->getVersion(), '1.2.3', '<')) {
-            if ($installer->getConnection()->tableColumnExists('omnivalt_label_history', 'services') === false) {
+            if ($installer->getConnection()->tableColumnExists($installer->getTable('omnivalt_label_history'), 'services') === false) {
                 $installer->getConnection()->addColumn(
                         $installer->getTable('omnivalt_label_history'),
                         'services',
@@ -121,7 +121,7 @@ class UpgradeSchema implements UpgradeSchemaInterface
         }
 
         if(version_compare($context->getVersion(), '1.2.18', '<')) {
-            if (!$installer->tableExists('omnivalt_courier_requests')) {
+            if (!$installer->tableExists($installer->getTable('omnivalt_courier_requests'))) {
                 $table = $installer->getConnection()->newTable($installer->getTable('omnivalt_courier_requests'))
                         ->addColumn(
                                 'courier_request_id',

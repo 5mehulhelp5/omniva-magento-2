@@ -1,5 +1,8 @@
 # Changelog
 
+### Unreleased
+- Fixed UpgradeScheme to work when tables have a prefix
+
 ### Version 1.3.6
 - Updated composer.json parameter indicating that the module works with PHP 8
 - Added description of shipment contents when registering a shipment
